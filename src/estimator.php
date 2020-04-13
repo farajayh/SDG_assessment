@@ -116,8 +116,8 @@
     $severeImpactCasesForVentilatorsByRequestedTime = floor((2/100)*$severeImpactInfectionsByRequestedTime);
 
     //dollars in flight
-    $impactDollarsInFlight = floor(($impactInfectionsByRequestedTime * 0.71 * 5)/28);
-    $severeImpactDollarsInFlight = floor(($severeImpactInfectionsByRequestedTime * 0.71 * 5)/28);
+    $impactDollarsInFlight = floor(($impactInfectionsByRequestedTime * $data['region']['avgDailyIncomePopulation'] * $data['region']['avgDailyIncomeInUSD'])/$timeToElapse);
+    $severeImpactDollarsInFlight = floor(($severeImpactInfectionsByRequestedTime * $data['region']['avgDailyIncomePopulation'] * $data['region']['avgDailyIncomeInUSD'])/$timeToElapse);
 
     //output
     $data = array(
