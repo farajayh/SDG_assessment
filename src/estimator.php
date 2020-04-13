@@ -100,20 +100,20 @@
     $severeImpactInfectionsByRequestedTime = $severeImpactCurrentlyInfected * (2**floor($timeToElapse/3));
 
     //severe cases by requested time
-    $impactSevereCasesByRequestedTime = floor((15/100)*$impactInfectionsByRequestedTime);
+    $impactSevereCasesByRequestedTime = (floor(15/100))*$impactInfectionsByRequestedTime;
     $severeImpactSevereCasesByRequestedTime = floor((15/100)*$severeImpactInfectionsByRequestedTime);
 
     //hospital bed by requested time
-    $impactHospitalBedsByRequestedTime = floor((35/100)*$data['totalHospitalBeds']) - $impactSevereCasesByRequestedTime;
-    $severeImpactHospitalBedsByRequestedTime = floor((35/100)*$data['totalHospitalBeds']) - $severeImpactSevereCasesByRequestedTime;
+    $impactHospitalBedsByRequestedTime = (floor(35/100))*$data['totalHospitalBeds'] - $impactSevereCasesByRequestedTime;
+    $severeImpactHospitalBedsByRequestedTime = (floor(35/100))*$data['totalHospitalBeds'] - $severeImpactSevereCasesByRequestedTime;
 
     //cases for ICU by requested time
-    $impactCasesForICUByRequestedTime = floor((5/100)*$impactInfectionsByRequestedTime);
-    $severeImpactCasesForICUByRequestedTime = floor((5/100)*$severeImpactInfectionsByRequestedTime);
+    $impactCasesForICUByRequestedTime = (floor(5/100))*$impactInfectionsByRequestedTime;
+    $severeImpactCasesForICUByRequestedTime = (floor(5/100))*$severeImpactInfectionsByRequestedTime;
 
     //cases for ventilators by requested time
-    $impactCasesForVentilatorsByRequestedTime = floor((2/100)*$impactInfectionsByRequestedTime);
-    $severeImpactCasesForVentilatorsByRequestedTime = floor((2/100)*$severeImpactInfectionsByRequestedTime);
+    $impactCasesForVentilatorsByRequestedTime = (floor(2/100))*$impactInfectionsByRequestedTime;
+    $severeImpactCasesForVentilatorsByRequestedTime = (floor(2/100))*$severeImpactInfectionsByRequestedTime;
 
     //dollars in flight
     $impactDollarsInFlight = floor(($impactInfectionsByRequestedTime * 0.71 * 5)/28);
