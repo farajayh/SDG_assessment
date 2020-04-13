@@ -11,16 +11,16 @@
 
   $input_data = array (
     'region' => array(
-                    'name' => $request_data->region->name,
-                    'avgAge' => $request_data->region->avgAge,
-                    'avgDailyIncomeInUSD' => $request_data->region->avgDailyIncomeInUSD,
-                    'avgDailyIncomePopulation' => $request_data->region->avgDailyIncomePopulation
-                  ),
-    'periodType' => $request_data->periodType,
-    'timeToElapse' =>  $request_data->timeToElapse,
-    'reportedCases' => $request_data->reportedCases,
-    'population' => $request_data->population,
-    'totalHospitalBeds' => $request_data->totalHospitalBeds,
+          'name' => "Africa",
+          'avgAge' => 19.7,
+          'avgDailyIncomeInUSD' => 5,
+          'avgDailyIncomePopulation' => 0.71
+        ),
+    'periodType' => "days",
+    'timeToElapse' =>  58,
+    'reportedCases' => 674,
+    'population' => 66622705,
+    'totalHospitalBeds' => 1380614,
     'impact' => array(),
     'severeImpact' => array()
     );
