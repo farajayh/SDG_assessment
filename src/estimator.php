@@ -38,28 +38,28 @@
     $severeImpactCurrentlyInfected = $data['reportedCases']*50;
 
     //infections by requested time 
-    $impactInfectionsByRequestedTime = $impactCurrentlyInfected * (2**floor($timeToElapse/3));
-    $severeImpactInfectionsByRequestedTime = $severeImpactCurrentlyInfected * (2**floor($timeToElapse/3));
+    $impactInfectionsByRequestedTime = $impactCurrentlyInfected * (2**intval($timeToElapse/3));
+    $severeImpactInfectionsByRequestedTime = $severeImpactCurrentlyInfected * (2**intval($timeToElapse/3));
 
     //severe cases by requested time
-    $impactSevereCasesByRequestedTime = floor((15/100)*$impactInfectionsByRequestedTime);
-    $severeImpactSevereCasesByRequestedTime = floor((15/100)*$severeImpactInfectionsByRequestedTime);
+    $impactSevereCasesByRequestedTime = intval((15/100)*$impactInfectionsByRequestedTime);
+    $severeImpactSevereCasesByRequestedTime = intval((15/100)*$severeImpactInfectionsByRequestedTime);
 
     //hospital bed by requested time
-    $impactHospitalBedsByRequestedTime = ceil((35/100)*$data['totalHospitalBeds']) - $impactSevereCasesByRequestedTime;
-    $severeImpactHospitalBedsByRequestedTime = ceil((35/100)*$data['totalHospitalBeds']) - $severeImpactSevereCasesByRequestedTime;
+    $impactHospitalBedsByRequestedTime = intval((35/100)*$data['totalHospitalBeds']) - $impactSevereCasesByRequestedTime;
+    $severeImpactHospitalBedsByRequestedTime = intval((35/100)*$data['totalHospitalBeds']) - $severeImpactSevereCasesByRequestedTime;
 
     //cases for ICU by requested time
-    $impactCasesForICUByRequestedTime = floor((5/100)*$impactInfectionsByRequestedTime);
-    $severeImpactCasesForICUByRequestedTime = floor((5/100)*$severeImpactInfectionsByRequestedTime);
+    $impactCasesForICUByRequestedTime = intval((5/100)*$impactInfectionsByRequestedTime);
+    $severeImpactCasesForICUByRequestedTime = intval((5/100)*$severeImpactInfectionsByRequestedTime);
 
     //cases for ventilators by requested time
-    $impactCasesForVentilatorsByRequestedTime = floor((2/100)*$impactInfectionsByRequestedTime);
-    $severeImpactCasesForVentilatorsByRequestedTime = floor((2/100)*$severeImpactInfectionsByRequestedTime);
+    $impactCasesForVentilatorsByRequestedTime = intval((2/100)*$impactInfectionsByRequestedTime);
+    $severeImpactCasesForVentilatorsByRequestedTime = intval((2/100)*$severeImpactInfectionsByRequestedTime);
 
     //dollars in flight
-    $impactDollarsInFlight = floor(($impactInfectionsByRequestedTime * $data['region']['avgDailyIncomePopulation'] * $data['region']['avgDailyIncomeInUSD'])/$timeToElapse);
-    $severeImpactDollarsInFlight = floor(($severeImpactInfectionsByRequestedTime * $data['region']['avgDailyIncomePopulation'] * $data['region']['avgDailyIncomeInUSD'])/$timeToElapse);
+    $impactDollarsInFlight = intval(($impactInfectionsByRequestedTime * $data['region']['avgDailyIncomePopulation'] * $data['region']['avgDailyIncomeInUSD'])/$timeToElapse);
+    $severeImpactDollarsInFlight = intval(($severeImpactInfectionsByRequestedTime * $data['region']['avgDailyIncomePopulation'] * $data['region']['avgDailyIncomeInUSD'])/$timeToElapse);
 
     //output
     $data = array(
