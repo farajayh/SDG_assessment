@@ -1,6 +1,6 @@
 <?php
 
-  //input data
+  //input 
   $input_data = array (
     'region' => array(
           'name' => "Africa",
